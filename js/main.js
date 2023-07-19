@@ -1,6 +1,9 @@
 //dati prezzo
 const priceUnit = 0.21;
 let basePrice = 0;
+const minAgeDiscount = 18, minPromo = 20;
+const maxAgeDiscount = 65, maxPromo = 40;
+
 
 //dati utente
 const distance = parseInt(prompt("Inserire lunghezza tragitto (km):"))
@@ -13,7 +16,17 @@ if ( !(isNaN(distance) || isNaN(age)) ) {
    basePrice = distance * priceUnit
    console.log("Il prezzo base è: " + basePrice)
 
+   //applico sconto in base età
+   if (age < minAgeDiscount) { //minorenne
+        basePrice = (basePrice - (basePrice * minPromo) / 100);
+        console.log(basePrice)
+    } else if (age > maxAgeDiscount) { //over 65
+        basePrice = (basePrice - (basePrice * maxPromo) / 100);
+        console.log(basePrice)
+    }
+
    
+
 
 } else {
     console.log("Dati non validi.")
