@@ -25,9 +25,11 @@ if ( !(isNaN(distance) || isNaN(age)) ) {
         console.log(basePrice)
     }
 
-   
+    //arrotondamento
+    basePrice = basePrice.toFixed(2)
+    document.getElementById("final_price").innerHTML = basePrice + "€"
 
 
 } else {
-    console.log("Dati non validi.")
+    document.getElementById("final_price").innerHTML = "Dati inseriti non validi. Ricarica pagina."
 }
