@@ -10,26 +10,23 @@ const distance = parseInt(prompt("Inserire lunghezza tragitto (km):"))
 const age = parseInt(prompt("Inserire età:"))
 
 //convalidare tipo variabile
-if ( !(isNaN(distance) || isNaN(age)) ) {
+if (!(isNaN(distance) || isNaN(age))) {
 
     //calcolo prezzo base
-   basePrice = distance * priceUnit
-   console.log("Il prezzo base è: " + basePrice)
+    basePrice = distance * priceUnit
 
-   //applico sconto in base età
-   if (age < minAgeDiscount) { //minorenne
+    //applico sconto in base età
+    if (age < minAgeDiscount) { //minorenne
         basePrice = (basePrice - (basePrice * minPromo) / 100);
-        console.log(basePrice)
     } else if (age > maxAgeDiscount) { //over 65
         basePrice = (basePrice - (basePrice * maxPromo) / 100);
-        console.log(basePrice)
     }
 
     //arrotondamento
     basePrice = basePrice.toFixed(2)
     document.getElementById("final_price").innerHTML = basePrice + "€"
 
-
 } else {
     document.getElementById("final_price").innerHTML = "Dati inseriti non validi. Ricarica pagina."
 }
+
